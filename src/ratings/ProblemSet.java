@@ -7,8 +7,19 @@ public class ProblemSet {
 
 
     public static double average(ArrayList<Double> numbers) {
-        return 0.0;
 
+        if (numbers.isEmpty()) {
+            return 0.0;
+        }else {
+            int counter = 0;
+            double sum = 0;
+            for (int i=0; i<numbers.size(); i++) {
+                sum += numbers.get(i);
+                counter++;
+            }
+            return (sum / counter);
+
+        }
         // TODO: Implement this method to return the average of all the numbers in the input ArrayList
         //       If the ArrayList is empty, return 0.0
         //
@@ -17,6 +28,7 @@ public class ProblemSet {
         // [-5.0,5.0] returns 0.0
         // [6.5,6.5,8.5,8.5] returns 7.5
         // [] returns 0.0
+
 
     }
 
