@@ -13,7 +13,9 @@ public class TestProblemSet {
 
     // TODO: Write testing for all 3 methods of the ratings.ProblemSet class
 
-    public static void main(String[] args) {
+
+    @Test
+    public void StringTest() {
         ArrayList<Double> list = new ArrayList<Double>();
         list.add(1.0);
         list.add(2.0);
@@ -22,6 +24,9 @@ public class TestProblemSet {
         System.out.println("" + ratings.ProblemSet.average(list));
 
         System.out.println("" + ratings.ProblemSet.sumOfDigits(123));
+
+        assertTrue(ratings.ProblemSet.sumOfDigits(123) == 6);
+
 
     }
 
