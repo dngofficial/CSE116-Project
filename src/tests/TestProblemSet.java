@@ -20,6 +20,9 @@ public class TestProblemSet {
         list.add(3.0);
 
         System.out.println("" + ratings.ProblemSet.average(list));
+
+        System.out.println("" + ratings.ProblemSet.sumOfDigits(123));
+
     }
 
 }
