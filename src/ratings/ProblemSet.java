@@ -69,15 +69,25 @@ public class ProblemSet {
     public static String bestKey(HashMap<String, Integer> hashmap) {
 
 
-        //if (hashmap.isEmpty()) {
-        // return "";
-        // }else {
+        if (hashmap.isEmpty()) {
+            return "";
+        } else {
 
-
-        // }
-        // }
-
-        return "";
-
+            int max_value = -2147483646;
+            String return_string = "";
+            for (String key : hashmap.keySet()) {
+                int value = hashmap.get(key);
+                if (value == max_value) {
+                    if (Math.random() < 0.5) {
+                        return_string = key;
+                        max_value = value;                    }
+                }
+                else if (value > max_value) {
+                    return_string = key;
+                    max_value = value;
+                }
+            }
+            return return_string;
+        }
     }
 }

@@ -14,7 +14,8 @@ public class TestProblemSet {
     // TODO: Write testing for all 3 methods of the ratings.ProblemSet class
 
 
-    @Test
+
+        @Test
     public void StringTest() {
         ArrayList<Double> list = new ArrayList<Double>();
         list.add(1.0);
@@ -27,7 +28,13 @@ public class TestProblemSet {
 
         assertTrue(ratings.ProblemSet.sumOfDigits(123) == 6);
 
+            HashMap<String, Integer> bills = new HashMap<>();
 
-    }
+
+
+            System.out.print(ratings.ProblemSet.bestKey(bills));
+
+        }
+
 
 }
