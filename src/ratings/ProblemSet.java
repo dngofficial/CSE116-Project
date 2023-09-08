@@ -80,7 +80,8 @@ public class ProblemSet {
                 if (value == max_value) {
                     if (Math.random() < 0.5) {
                         return_string = key;
-                        max_value = value;                    }
+                        max_value = value;
+                    }
                 }
                 else if (value > max_value) {
                     return_string = key;
