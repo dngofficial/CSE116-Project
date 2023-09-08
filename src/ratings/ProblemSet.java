@@ -5,51 +5,44 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 public class ProblemSet {
-
+    // TODO: Implement this method to return the average of all the numbers in the input ArrayList
+    //       If the ArrayList is empty, return 0.0
+    //
+    // Examples
+    // [1.0,2.0,3.0] returns 2.0
+    // [-5.0,5.0] returns 0.0
+    // [6.5,6.5,8.5,8.5] returns 7.5
+    // [] returns 0.0
 
     public static double average(ArrayList<Double> numbers) {
 
-
-        // TODO: Implement this method to return the average of all the numbers in the input ArrayList
-        //       If the ArrayList is empty, return 0.0
-        //
-        // Examples
-        // [1.0,2.0,3.0] returns 2.0
-        // [-5.0,5.0] returns 0.0
-        // [6.5,6.5,8.5,8.5] returns 7.5
-        // [] returns 0.0
-
         if (numbers.isEmpty()) {
-            return 0.0;
+            return 0.0; //return empty if nothing
         } else {
-            int counter = 0;
             double sum = 0;
-            for (int i = 0; i < numbers.size(); i++) {
-                sum += numbers.get(i);
-                counter++;
+            for (Double i : numbers) {
+                //iterate through list and total it
+                sum += i;
             }
-            return (sum / counter);
-
+            return (sum / numbers.size());
         }
     }
-
+    // TODO: Write a public static method named sumOfDigits that takes an int as a parameter and
+    //       returns the sum of the digits of the input as an int
+    //
+    // Examples
+    // 123 returns 6
+    // 57 returns 12
+    // -36 returns 9
     public static int sumOfDigits(Integer number) {
 
-        // TODO: Write a public static method named sumOfDigits that takes an int as a parameter and
-        //       returns the sum of the digits of the input as an int
-        //
-        // Examples
-        // 123 returns 6
-        // 57 returns 12
-        // -36 returns 9
-
         Integer sum_total = 0;
-        String str_splitter = "" + number;
+        String str_splitter = "" + number; //turn int into string
 
-        String[] str_arr = str_splitter.split("");
+        String[] str_arr = str_splitter.split(""); //split the number string into an array
 
-        for (int i = 0; i < str_arr.length; i++) {
-            sum_total += Integer.parseInt(str_arr[i]);
+        for (String i : str_arr) {
+            sum_total += Integer.parseInt(i); //iterate through the array, parse as an int and total it all up
         }
 
         return sum_total;
@@ -71,13 +64,13 @@ public class ProblemSet {
 
         if (hashmap.isEmpty()) {
             return "";
-        } else {
-
+        }
+        else {
             int max_value = -2147483646;
             String return_string = "";
             for (String key : hashmap.keySet()) {
                 int value = hashmap.get(key);
-                if (value == max_value) {
+                if (value == max_value) { //if the value is the same there's a
                     if (Math.random() < 0.5) {
                         return_string = key;
                         max_value = value;
