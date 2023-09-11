@@ -1,6 +1,7 @@
 package ratings;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -42,6 +43,10 @@ public class ProblemSet {
         String[] str_arr = str_splitter.split(""); //split the number string into an array
 
         for (String i : str_arr) {
+            if (i.equals(("-")))
+            {
+                i ="0";
+            }
             sum_total += Integer.parseInt(i); //iterate through the array, parse as an int and total it all up
         }
 
