@@ -23,9 +23,11 @@ public class ProblemSet {
             double sum = 0;
             for (Double i : numbers) {
                 //iterate through list and total it
-                sum += i;
+                double real_i = i;
+                sum += real_i;
             }
-            return (sum / numbers.size());
+            double sol = sum / numbers.size();
+            return sol;
         }
     }
     // TODO: Write a public static method named sumOfDigits that takes an int as a parameter and
@@ -35,9 +37,9 @@ public class ProblemSet {
     // 123 returns 6
     // 57 returns 12
     // -36 returns 9
-    public static int sumOfDigits(Integer number) {
+    public static int sumOfDigits(int number) {
 
-        Integer sum_total = 0;
+        int sum_total = 0;
         String str_splitter = "" + number; //turn int into string
 
         String[] str_arr = str_splitter.split(""); //split the number string into an array

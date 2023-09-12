@@ -25,6 +25,7 @@ public class TestProblemSet {
             add(2.5);
             add(2.5);
         }};
+
         assertTrue(ProblemSet.average(list) == 2.5);
         ArrayList<Double> list_dx = new ArrayList<>() {{
             add(6.5);
@@ -35,7 +36,14 @@ public class TestProblemSet {
         assertTrue(ProblemSet.average(list_dx) == 7.5);
 
         ArrayList<Double> empty_list = new ArrayList<>();
+
         assertTrue(ProblemSet.average(empty_list) == 0.0);
+
+
+        ArrayList<Double> zero_list = new ArrayList<>(){{add(5.0); add(-5.0);}};
+        assertTrue(ProblemSet.average(zero_list) == 0.0);
+
+
     }
     @Test
     public void sumOfDigitsTest() {
@@ -63,7 +71,9 @@ public class TestProblemSet {
             put("cat", 100);
             put("bird", 87);
         }};
-        assertTrue(ProblemSet.bestKey(map1).equals("dog") || ProblemSet.bestKey(map1).equals("cat"));
+        String str_test = ProblemSet.bestKey(map1);
+        System.out.println(str_test);
+        assertTrue(str_test.equals("dog") || str_test.equals("cat"));
 
         map1 = new HashMap<String, Integer>() {{
 
