@@ -21,7 +21,7 @@ public class ProblemSet {
             return 0.0; //return empty if nothing
         } else {
             double sum = 0;
-            for (Double i : numbers) {
+            for (double i : numbers) {
                 //iterate through list and total it
                 double real_i = i;
                 sum += real_i;
