@@ -17,7 +17,7 @@ public class TestProblemSet {
     // TODO: Write testing for all 3 methods of the ratings.ProblemSet class
 
     @Test
-    public void AverageTest() {
+    public void AverageTest1() {
 
         ArrayList<Double> list = new ArrayList<>() {{
             add(2.5);
@@ -25,8 +25,13 @@ public class TestProblemSet {
             add(2.5);
             add(2.5);
         }};
-
         assertTrue(ProblemSet.average(list) == 2.5);
+
+    }
+
+    @Test
+    public void AverageTest2() {
+
         ArrayList<Double> list_dx = new ArrayList<>() {{
             add(6.5);
             add(6.5);
@@ -34,11 +39,15 @@ public class TestProblemSet {
             add(8.5);
         }};
         assertTrue(ProblemSet.average(list_dx) == 7.5);
-
+    }
+    @Test
+    public void AverageTest3() {
         ArrayList<Double> empty_list = new ArrayList<>();
 
         assertTrue(ProblemSet.average(empty_list) == 0.0);
-
+    }
+    @Test
+    public void AverageTest4() {
 
         ArrayList<Double> zero_list = new ArrayList<>(){{add(5.0); add(-5.0);}};
         assertTrue(ProblemSet.average(zero_list) == 0.0);
