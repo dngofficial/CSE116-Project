@@ -20,14 +20,15 @@ public class ProblemSet {
         if (numbers.isEmpty()) {
             return 0.0; //return empty if nothing
         } else {
-            double sum = 0;
+            double sum = 0.0;
+            double total = 0.0;
             for (double i : numbers) {
                 //iterate through list and total it
                 double real_i = i;
                 sum += real_i;
+                 total += 1.0;
             }
-            double sol = sum / numbers.size();
-            return sol;
+            return (sum/total);
         }
     }
     // TODO: Write a public static method named sumOfDigits that takes an int as a parameter and
