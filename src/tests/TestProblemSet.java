@@ -15,6 +15,8 @@ public class TestProblemSet {
 
     // TODO: Write testing for all 3 methods of the ratings.ProblemSet class
 
+    //we are testing EACH individual case
+
     @Test
     public void AverageTest1MutipleOfTheSameValue() {
         ArrayList<Double> list = new ArrayList<>() {{
