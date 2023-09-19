@@ -30,9 +30,4 @@ public class Song {
 
     public void setSongID(String song_id){this.song_id = song_id;}
 
-
-
-
-
-
 }
