@@ -29,34 +29,36 @@ public class TestClasses1 {
 
     @Test
     public void testGetTitle() {
-        assertEquals("See You Again", song.getTitle());
+        assertTrue(song.getTitle().equals("See You Again"));
+    }
+    @Test
+
+    public void getSongArtist() {
+        assertTrue(song.getArtist().equals("Tyler The Creator"));
+
     }
     @Test
     public void testGetSongID() {
-        assertEquals("43", song.getSongID());
-    }
+        assertTrue(song.getSongID().equals("43"));
 
-    @Test
-    public void getSongArtist() {
-        assertEquals("Tyler The Creator", song.getArtist());
     }
 
     @Test
     public void testSetTitle() {
         song.setTitle("Live Wire");
-        assertEquals("Live Wire", song.getTitle());
+        assertTrue(song.getTitle().equals("Live Wire"));
     }
 
     @Test
     public void testSetSongID() {
         song.setSongID("57");
-        assertEquals("57", song.getSongID());
+        assertTrue(song.getSongID().equals("57"));
     }
 
     @Test
     public void testSetArtist() {
         song.setArtist("Motley Crue");
-        assertEquals("Motley Crue", song.getArtist());
+        assertTrue(song.getArtist().equals("Motley Crue"));
     }
 
 
