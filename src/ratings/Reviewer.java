@@ -1,4 +1,5 @@
 package ratings;
+import ratings.Rating;
 
 public class Reviewer {
     private String reviewer_id;
@@ -11,6 +12,9 @@ public class Reviewer {
     }
     public void setReviewerID(String reviewer_id){this.reviewer_id = reviewer_id;}
 
-
+    public Rating rateSong(int song_rating)
+    {
+        return new Rating(this.reviewer_id, song_rating);
+    }
 
 }
