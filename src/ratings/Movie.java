@@ -1,39 +1,29 @@
 package ratings;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import ratings.datastructures.LinkedListNode;
-import ratings.Rating;
-import ratings.Reviewer;
 
-public class Song {
+import java.util.ArrayList;
+
+public class Movie {
     private String title;
-    private String artist;
-    private String song_id;
+    private ArrayList<String> cast_list;
 
     private LinkedListNode<Rating> songlinkedlist = null;
-    public Song(String title, String artist, String song_id) {
+    public Movie(String title, ArrayList<String> cast_list) {
         this.setTitle(title);
-        this.setArtist(artist);
-        this.setSongID(song_id);
+        this.cast_list = cast_list;
     }
 
     public String getTitle() {
         return this.title;
     }
+    public ArrayList<String> getCast() {
+        return this.cast_list;
+    }
 
-    public String getArtist() {
-        return this.artist;
-    }
-    public String getSongID () {
-        return this.song_id;
-    }
 
     public void setTitle(String title){this.title = title;}
 
-    public void setArtist(String artist){this.artist = artist;}
-
-    public void setSongID(String song_id){this.song_id = song_id;}
 
     public void addRating(Rating rating)
     {
@@ -106,9 +96,6 @@ public class Song {
         }
 
     }
-
-
-
     public void deleteNodeTest(int loc)
     {
         this.songlinkedlist.delete(loc);

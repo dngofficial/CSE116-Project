@@ -65,4 +65,27 @@ public class LinkedListNode<T> {
             this.next.insert(value, loc - 1);
         }
     }
+
+    public void delete(int loc)
+    {
+        loc = loc - 1;
+        if (loc == -1) {
+            this.value = this.next.value;
+            this.next = this.next.next;
+        }
+        else if (loc == 0)
+        {
+            if (this.next.next == null)
+            {
+                this.next = null;
+            }
+            else {
+                this.next = this.next.next;
+            }
+        }
+        else
+        {
+            this.next.delete(loc);
+        }
+    }
 }
