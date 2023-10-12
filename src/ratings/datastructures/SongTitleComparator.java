@@ -7,7 +7,8 @@ public class SongTitleComparator extends Comparator<Song> {
     public boolean compare(Song a, Song b) {
 
         int val_result = a.getTitle().compareToIgnoreCase(b.getTitle());
+        System.out.println(val_result);
 
-        return false; //not sure how to convert the int values into the true/false statement yet
+        return val_result < 0;
     }
 }

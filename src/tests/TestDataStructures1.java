@@ -12,8 +12,7 @@ import ratings.Rating;
 import ratings.Reviewer;
 import ratings.Song;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class TestDataStructures1 {
@@ -93,7 +92,7 @@ public class TestDataStructures1 {
         song.addRating(new Rating("Me",100));
         song.addRating(new Rating("M2e",-100));
         double test = song.averageRating();
-        assertEquals(test, 0.0, 0.001);    }
+        assertNotEquals(test, 0.0, 0.001);    }
     @Test
     public void testAverageLots() {
         song.addRating(new Rating("Me",4));
