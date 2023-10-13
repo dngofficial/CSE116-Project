@@ -129,9 +129,12 @@ public class Ratable {
 
     public double bayesianAverageRating(int extra_rating_count, int extra_rating_value)
     {
-        if(this.songlinkedlist == null || extra_rating_value == 0){
+        if(this.songlinkedlist == null) {
+            return 0.0;
+        }
+        else if(this.songlinkedlist == null && extra_rating_count == 0){
         return 0.0;
-    }
+        }
         else if ((extra_rating_value < 1 || extra_rating_value > 5) || (extra_rating_count < 0))
         {
             return 0.0;
@@ -147,7 +150,8 @@ public class Ratable {
                 }
                 else
                 {
-                    antinodesize++;
+                    i += temp_i;
+                    //antinodesize++;
                 }
                 System.out.println(i);
                 temp = temp.getNext();
@@ -156,8 +160,8 @@ public class Ratable {
             System.out.println(antinodesize);
 
             double total = i+(extra_rating_count * extra_rating_value);
-            int size = (this.songlinkedlist.size() - antinodesize)+ extra_rating_count;
-            return (double) total /size;
+            int size = (this.songlinkedlist.size() )+ extra_rating_count;
+            return (total /size);
         }
     }
 }

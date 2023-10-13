@@ -59,6 +59,14 @@ public class TestClasses2 {
     }
 
     @Test
+    public void testBayenianAverageAlterate() {
+        song.addRating(new Rating("Me",4));
+        song.addRating(new Rating("Me2",5));
+        double test = song.bayesianAverageRating(3,2);
+        assertEquals(test, 3.00, 0.001);
+    }
+
+    @Test
     public void testBayenianAverage2x() {
         song.addRating(new Rating("Me",4));
         song.addRating(new Rating("Me2",5));
@@ -66,6 +74,22 @@ public class TestClasses2 {
         assertEquals(test, 3.75, 0.001);
         test = song.bayesianAverageRating(2,3);
         assertEquals(test, 3.75, 0.001);
+    }
+
+    @Test
+    public void testBayenianAverage0total() {
+        song.addRating(new Rating("Me",4));
+        song.addRating(new Rating("Me2",5));
+        double test = song.bayesianAverageRating(0,3);
+        assertEquals(test, 4.5, 0.001);
+
+    }
+
+    @Test
+    public void testBayenianAverage0totalNil() {
+        double test = song.bayesianAverageRating(0,3);
+        assertEquals(test, 0.00, 0.001);
+
     }
 
     @Test
