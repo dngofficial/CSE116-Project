@@ -29,6 +29,14 @@ public class Playlist {
             this.insertHelper(this.songBinaryTree, song);
         }
     }
+
+    public void traversal(BinaryTreeNode<Song> node) {
+        if (node != null) {
+            traversal(node.getLeft());
+            System.out.print(node.getValue());
+            traversal(node.getRight());
+        }
+    }
     private void insertHelper(BinaryTreeNode<Song> node, Song songToInsert) {
         if (this.comparator.compare(songToInsert, node.getValue())) {
             if (node.getLeft() == null) {
@@ -46,16 +54,33 @@ public class Playlist {
     }
 
     public LinkedListNode<Song> getSongList(BinaryTreeNode<Song> node) {
-        this.stubValueLinkedListTrue = null;
-        getSongListCoreRecursionLoop(node);
-        return this.stubValueLinkedListTrue;
+        if (node == null)
+        {
+            return null;
+        }
+        else {
+            this.stubValueLinkedListTrue = null;
+            getSongListCoreRecursionLoop(node);
+            return this.stubValueLinkedListTrue;
+        }
     }
     private void getSongListCoreRecursionLoop(BinaryTreeNode<Song> node)
     {
         if (node != null) {
             getSongListCoreRecursionLoop(node.getLeft());
-            this.stubValueLinkedListTrue.append(node.getValue());
+            addSongHelper(node.getValue());
             getSongListCoreRecursionLoop(node.getRight());
+        }
+    }
+
+    private void addSongHelper(Song song)
+    {
+        if(this.stubValueLinkedListTrue == null)
+        {
+            this.stubValueLinkedListTrue = new LinkedListNode<>(song, null);
+        }
+        else {
+            this.stubValueLinkedListTrue.append(song);
         }
     }
 
