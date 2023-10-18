@@ -82,14 +82,12 @@ public class TestClasses2 {
         song.addRating(new Rating("Me2",5));
         double test = song.bayesianAverageRating(0,3);
         assertEquals(test, 4.5, 0.001);
-
     }
 
     @Test
     public void testBayenianAverage0totalNil() {
         double test = song.bayesianAverageRating(0,3);
         assertEquals(test, 0.00, 0.001);
-
     }
 
     @Test
@@ -97,6 +95,14 @@ public class TestClasses2 {
         double test = song.bayesianAverageRating(0,3);
         assertEquals(test, 0.0, 0.001);
     }
+
+    @Test
+    public void testBayenianAverageEmptyButCalcRatings() {
+        double test = song.bayesianAverageRating(2,3);
+        assertEquals(test, 3.0, 0.001);
+    }
+
+
 
     @Test
     public void testBayenianAverageInvalidParams() {

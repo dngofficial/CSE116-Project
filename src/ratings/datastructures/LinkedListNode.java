@@ -70,22 +70,22 @@ public class LinkedListNode<T> {
     {
         loc = loc - 1;
         if (loc == -1) {
-            this.value = this.next.value;
-            this.next = this.next.next;
+            this.value = this.next.value; //the first node is deleted
+            this.next = this.next.next; //so set the next node to be the head node
         }
         else if (loc == 0)
         {
-            if (this.next.next == null)
+            if (this.next.next == null) //case to handle if the last node is the one being deleted
             {
                 this.next = null;
             }
             else {
-                this.next = this.next.next;
+                this.next = this.next.next; //normal delete case
             }
         }
         else
         {
-            this.next.delete(loc);
+            this.next.delete(loc); //recursion
         }
     }
 }
