@@ -73,6 +73,7 @@ public class TestDataStructures2 {
         assertTrue(playlistTitleCompare.getSongList().getElement(song2) != null);
         assertTrue(playlistTitleCompare.getSongList().getElement(song3) != null);
         assertTrue(playlistTitleCompare.getSongList().getElement(song4) != null);
+
     }
 
 

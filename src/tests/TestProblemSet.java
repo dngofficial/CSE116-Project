@@ -91,6 +91,7 @@ public class TestProblemSet {
 
         assertTrue(ProblemSet.sumOfDigits(0000) == 0);
         assertTrue(ProblemSet.sumOfDigits(-0000) == 0);
+
     }
 
     @Test
