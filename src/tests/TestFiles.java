@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class TestFiles {
@@ -36,16 +35,29 @@ public class TestFiles {
             return  false;
         }
         for(int i = 0; i < list1.size(); i++){
-            if(!(list1.get(i).equalsIgnoreCase(list2.get(i)))){
+            if(!(list1.get(i).equals(list2.get(i)))){
                 return false;
             }
         }
         return true;
     }
 
+    public static boolean existenceMovie(ArrayList<Movie> list1, String title){
+
+        assertNotNull(list1);
+        assertTrue(!(list1.isEmpty()));
+
+        for(int i = 0; i < list1.size(); i++){
+            if(list1.get(i).getTitle().equals(title)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean testLists(LinkedListNode<Rating> node, ArrayList<Integer> list2)
     {
-        if(node == null){
+        if(node == null || (node.size() != list2.size())){
             return false;
         }
         else {
@@ -61,7 +73,6 @@ public class TestFiles {
 
     }
 
-    @Test
     public void testMovieCast() {
         ArrayList<String> zero_list = new ArrayList<>(){{add("Mary Steenburgen");add("Sean Patrick Flanery");add("Lance Henriksen");add("Jeff Goldblum");add("Brandon Smith");}};
 
@@ -84,4 +95,11 @@ public class TestFiles {
         assertTrue(FileReader.readSongs("data/ratingsdne.csv").isEmpty());
     }
 
-}
+    @Test
+    public void testMovieBasicInfo() {
+        assertTrue(existenceMovie(FileReader.readMovies("data/movies.csv"), "Wind River"));
+    }
+
+
+
+    }
