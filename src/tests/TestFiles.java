@@ -40,12 +40,12 @@ public class TestFiles {
             return false;
         }
         else {
-            assertEquals(list1.size(), list2.size());
+            assertTrue(list1.size() ==list2.size());
             for (int i = 0; i < list1.size(); i++) {
                 System.out.println(list1.get(i));
                 System.out.println(list2.get(i));
 
-                assertEquals(list1.get(i), list2.get(i));
+                assertTrue(list1.get(i).equals(list2.get(i)));
             }
             return true;
         }
@@ -141,14 +141,25 @@ public class TestFiles {
             add("Brandon Smith");
         }};
 
-        ArrayList<String> cast_list = FileReader.readMovies("data/movie_test_2.csv").get(0).getCast();
-        assertTrue(!(cast_list.isEmpty()));
-        if (!(cast_list.isEmpty())){
-            assertTrue(compareLists(cast_list, zero_list));
-        }
+        ArrayList<String> cast_list = FileReader.readMovies("data/movie_test_2.csv").get(1).getCast();
+        assertFalse(cast_list.isEmpty() || cast_list.size() == 0 || cast_list.get(0) == null);
+        assertFalse(zero_list.isEmpty() || zero_list.size() == 0 || zero_list.get(0) == null);
+        assertArrayEquals(cast_list.toArray(), zero_list.toArray());
     }
 
-    @Test
+
+    public void testSongPrintRatings() {
+        ArrayList<Song> songs = FileReader.readSongs("data/ratings.csv");
+        for (Song song : songs)
+        {
+            System.out.println("Song: " + song.getTitle() + " Artist: " + song.getArtist() + " ID: " + song.getSongID());
+            System.out.println(song.outputtingList());
+        }
+
+
+    }
+
+        @Test
     public void testSongRatings() {
         LinkedListNode<Rating> node = FileReader.readSongs("data/rating_test_1.csv").get(0).getRatings();
         ArrayList<Integer> zero_list = new ArrayList<>() {{

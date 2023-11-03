@@ -40,8 +40,7 @@ public class FileReader {
             ArrayList<Song> return_arraylist = new ArrayList<Song>();
             ArrayList<String> master_csv_lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
 
-            ArrayList<String> str_first = new ArrayList<>(Arrays.asList(master_csv_lines.get(0).split(",")));
-            String first_id_string = " ";
+            String first_id_string = "-1";
             for (String unsplit_movie_list : master_csv_lines) {
 
                 ArrayList<String> split_string_song = new ArrayList<>(Arrays.asList(unsplit_movie_list.split(",")));
@@ -53,20 +52,18 @@ public class FileReader {
 
                     Song song = new Song(song_title, song_artist, song_id);
 
-                    for (int i = 0; i < master_csv_lines.size(); i++) {
-                        ArrayList<String> split_string_song_2 = new ArrayList<>(Arrays.asList(master_csv_lines.get(i).split(",")));
+                    for (String unsplit_movie_list_2 : master_csv_lines) {
+                        ArrayList<String> split_string_song_2 = new ArrayList<>(Arrays.asList(unsplit_movie_list_2.split(",")));
                         String song_reviewer_id = split_string_song_2.get(3);
                         int song_rating = Integer.parseInt(split_string_song_2.get(4));
 
-                        if (split_string_song.get(0).equals(split_string_song_2.get(0))) {
+                        if (song_id.equals(split_string_song_2.get(0))) {
                             song.addRating(new Rating(song_reviewer_id, song_rating));
                         }
                     }
-
                     first_id_string = song_id;
                     return_arraylist.add(song);
                 }
-
             }
             return return_arraylist;
             }

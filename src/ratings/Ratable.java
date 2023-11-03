@@ -70,7 +70,6 @@ public class Ratable {
             return (i/(this.songlinkedlist.size() - antinodesize));
         }
     }
-
     public String outputtingList()
     {
         String str = "";
@@ -80,14 +79,15 @@ public class Ratable {
         else {
             LinkedListNode<Rating> temp = this.songlinkedlist;
             while (temp.getNext() != null) {
-                str += temp.getValue().getRating() + " ";
+                str += "Rating: " + temp.getValue().getRating() + " Reviewer ID: " + temp.getValue().getReviewerID() + " ";
                 temp = temp.getNext();
             } //all values
-            str += temp.getValue().getRating() + " ";
+            str += "Rating: " + temp.getValue().getRating() + " Reviewer ID: " + temp.getValue().getReviewerID() + " ";
             return str;
         }
 
     }
+
 
     public void deleteNodeTest(int loc)
     {
