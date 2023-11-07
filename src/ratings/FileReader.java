@@ -35,12 +35,12 @@ public class FileReader {
         }
     }
 
-    public static ArrayList<Song> readSongs(String filename) {
+     public static ArrayList<Song> readSongs(String filename) {
         try {
             ArrayList<Song> return_arraylist = new ArrayList<Song>();
             ArrayList<String> master_csv_lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
 
-            String first_id_string = "-1";
+            ArrayList<String> all_ids_scanned_already = new ArrayList<String>();
             for (String unsplit_movie_list : master_csv_lines) {
 
                 ArrayList<String> split_string_song = new ArrayList<>(Arrays.asList(unsplit_movie_list.split(",")));
@@ -48,7 +48,7 @@ public class FileReader {
                 String song_artist = split_string_song.get(1);
                 String song_title = split_string_song.get(2);
 
-                if (!(song_id.equals(first_id_string))) {
+                if (!(all_ids_scanned_already.contains(song_id))) {
 
                     Song song = new Song(song_title, song_artist, song_id);
 
@@ -61,7 +61,7 @@ public class FileReader {
                             song.addRating(new Rating(song_reviewer_id, song_rating));
                         }
                     }
-                    first_id_string = song_id;
+                    all_ids_scanned_already.add(song_id);
                     return_arraylist.add(song);
                 }
             }
@@ -73,6 +73,8 @@ public class FileReader {
             }
 
         }
-    }
+
+}
+
 
 

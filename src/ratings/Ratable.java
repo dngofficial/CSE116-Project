@@ -78,11 +78,10 @@ public class Ratable {
         }
         else {
             LinkedListNode<Rating> temp = this.songlinkedlist;
-            while (temp.getNext() != null) {
-                str += "Rating: " + temp.getValue().getRating() + " Reviewer ID: " + temp.getValue().getReviewerID() + " ";
+            while (temp != null) {
+                str += "Rating: " + temp.getValue().getRating() + " + Reviewer ID: " + temp.getValue().getReviewerID() + " | ";
                 temp = temp.getNext();
             } //all values
-            str += "Rating: " + temp.getValue().getRating() + " Reviewer ID: " + temp.getValue().getReviewerID() + " ";
             return str;
         }
 

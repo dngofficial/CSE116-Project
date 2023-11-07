@@ -152,8 +152,9 @@ public class TestFiles {
         ArrayList<Song> songs = FileReader.readSongs("data/ratings.csv");
         for (Song song : songs)
         {
-            System.out.println("Song: " + song.getTitle() + " Artist: " + song.getArtist() + " ID: " + song.getSongID());
+            System.out.println("Song: " + song.getTitle() + " | Artist: " + song.getArtist() + " | ID: " + song.getSongID());
             System.out.println(song.outputtingList());
+            System.out.println("----------------------------------------------------");
         }
 
 
