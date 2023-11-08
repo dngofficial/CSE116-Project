@@ -1,6 +1,7 @@
 package ratings;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -72,6 +73,43 @@ public class FileReader {
                 return new ArrayList<>();
             }
 
+        }
+
+        public static ArrayList<Movie> readMovieRatings(ArrayList<Movie> movie_list, String filename)
+        {
+            try {
+            ArrayList<String> master_csv_lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
+
+                for (int i = movie_list.size() - 1; i >=0 ; i--) {
+                    String movie_title = movie_list.get(i).getTitle();
+                    boolean not_rated = true;
+
+                    for (String unsplit_movie_list_lines : master_csv_lines) {
+                        ArrayList<String> split_movie_list_lines = new ArrayList<>(Arrays.asList(unsplit_movie_list_lines.split(",")));
+
+                        String temp_movie_title = split_movie_list_lines.get(0);
+                        String mov_reviewer_id = split_movie_list_lines.get(1);
+                        int movie_rating = Integer.parseInt(split_movie_list_lines.get(2));
+
+
+                        if (temp_movie_title.equals(movie_title)) {
+                            movie_list.get(i).addRating(new Rating(mov_reviewer_id, movie_rating));
+                            not_rated = false;
+                        }
+                    }
+                    if (not_rated) { movie_list.remove(i);}
+
+
+                }
+
+                return movie_list;
+
+
+                }
+            catch(IOException e){
+                System.out.println("failed");
+                return new ArrayList<>();
+            }
         }
 
 }
