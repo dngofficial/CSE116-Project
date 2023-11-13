@@ -147,12 +147,8 @@ public class Ratable {
                     i += temp_i;
                     size_list ++;
                 }
-                System.out.println(i);
                 temp = temp.getNext();
             } //all values
-            System.out.println(i);
-            System.out.println(antinodesize);
-
             double total = i+(extra_rating_count * extra_rating_value);
             int size = (size_list)+ extra_rating_count;
             return (total/size);

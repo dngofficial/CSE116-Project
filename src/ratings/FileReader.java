@@ -75,9 +75,10 @@ public class FileReader {
 
         }
 
-        public static ArrayList<Movie> readMovieRatings(ArrayList<Movie> movie_list, String filename)
+        public static ArrayList<Movie> readMovieRatings(ArrayList<Movie> movie_list_1, String filename)
         {
             try {
+                ArrayList<Movie> movie_list = movie_list_1;
             ArrayList<String> master_csv_lines = new ArrayList<>(Files.readAllLines(Paths.get(filename)));
 
                 for (int i = movie_list.size() - 1; i >=0 ; i--) {
@@ -91,11 +92,11 @@ public class FileReader {
                         String mov_reviewer_id = split_movie_list_lines.get(1);
                         int movie_rating = Integer.parseInt(split_movie_list_lines.get(2));
 
-
                         if (temp_movie_title.equals(movie_title)) {
                             movie_list.get(i).addRating(new Rating(mov_reviewer_id, movie_rating));
                             not_rated = false;
                         }
+
                     }
                     if (not_rated) { movie_list.remove(i);}
 
