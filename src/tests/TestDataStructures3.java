@@ -34,6 +34,9 @@ public class TestDataStructures3 {
                 add("Fortnite Bob");
                 add("Griddy Demon Ohio");
             }}));
+            add(new Movie("Jimmy", new ArrayList<String>() {{
+                add("Kimmy");
+            }}));
         }};
 
         separation = new DegreesOfSeparation(expected);
@@ -54,6 +57,15 @@ public class TestDataStructures3 {
 
         assertTrue(separation.degreesOfSeparation("Kevin Bacon", "Fortnite Bob")  == 2);
         assertTrue(separation.degreesOfSeparation("Fortnite Bob", "Kevin Bacon")  == 2);
+
+        assertTrue(separation.degreesOfSeparation("Kevin Bacon", "DNE")  == -1);
+
+        assertTrue(separation.degreesOfSeparation("Kevin Bacon", "Kimmy")  == -1);
+
+        assertTrue(separation.degreesOfSeparation("Kimmy", "Kevin Bacon")  == -1);
+
+
+
 
 
 

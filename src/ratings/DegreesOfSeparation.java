@@ -24,7 +24,12 @@ public class DegreesOfSeparation {
         Queue<String> queue = new LinkedList();
         for (String member : this.graph.getAdjacencyList().keySet()){
             map.put(member, new ArrayList<>());
-            map.get(member).add(null);
+            map.get(member).add(-1);
+        }
+
+        if (!(map.containsKey(cast) && map.containsKey(cast2)))
+        {
+            return -1;
         }
 
         map.get(cast).set(0,0);
@@ -36,7 +41,7 @@ public class DegreesOfSeparation {
             String cast_member = queue.remove();
             for (String neightbors : graph.getNeighbors(cast_member))
             {
-                if (map.get(neightbors).get(0) == null)
+                if (map.get(neightbors).get(0) == -1)
                 {
                     map.get(neightbors).set(0, map.get(cast_member).get(0) + 1);
                     queue.add(neightbors);
